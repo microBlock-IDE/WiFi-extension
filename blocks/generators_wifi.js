@@ -2,9 +2,9 @@ Blockly.Python['wifi_connect'] = function(block) {
   var value_ssid = Blockly.Python.valueToCode(block, 'ssid', Blockly.Python.ORDER_ATOMIC);
   var value_pass = Blockly.Python.valueToCode(block, 'pass', Blockly.Python.ORDER_ATOMIC) || 'None';
   
-  Blockly.Python.definitions_['from_network_import_wlan'] = 'from network import WLAN';
+  Blockly.Python.definitions_['import_network'] = 'import network';
 
-  var code = `wlan = WLAN(network.STA_IF); wlan.active(True); wlan.connect(${value_ssid}, ${value_pass})\n`;
+  var code = `wlan = network.WLAN(network.STA_IF); wlan.active(True); wlan.connect(${value_ssid}, ${value_pass})\n`;
   return code;
 };
 
