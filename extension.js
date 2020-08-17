@@ -5,44 +5,16 @@
     blocks: [ // Blocks in Category
         {
             xml: `
-                <block type="mqtt_connect">
-                    <value name="host">
+                <block type="wifi_connect">
+                    <value name="ssid">
                         <shadow type="text">
-                            <field name="TEXT">test.mosquitto.org</field>
-                        </shadow>
-                    </value>
-                    <value name="port">
-                        <shadow type="math_number">
-                            <field name="NUM">1883</field>
-                        </shadow>
-                    </value>
-                    <value name="client_id">
-                        <shadow type="text">
-                            <field name="TEXT">MyMQTTDevice</field>
+                            <field name="TEXT">--wifi--name--</field>
                         </shadow>
                     </value>
                 </block>
             `
         },
-        {
-            xml: `
-                <block type="mqtt_publish">
-                    <value name="value">
-                        <shadow type="math_number">
-                            <field name="NUM">5</field>
-                        </shadow>
-                    </value>
-                </block>
-            `
-        },
-        "mqtt_on_receive",
-        "mqtt_subscribe",
-        "mqtt_get_topic",
-        "mqtt_get_number",
-        "mqtt_get_text",
-        "mqtt_check_msg",
-        "math_number",
-        "text",
-        "logic_boolean"
+        "wifi_is_connected",
+        "wifi_wait_connected"
     ]
 });
