@@ -15,6 +15,13 @@
             `
         },
         "wifi_is_connected",
-        "wifi_wait_connected"
+        "wifi_wait_connected",
+        {
+            xml: `
+                <block type="text">
+                    <field name="TEXT">--wifi--pass--</field>
+                </block>
+            `
+        },
     ]
 });
