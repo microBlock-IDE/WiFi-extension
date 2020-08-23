@@ -1,5 +1,9 @@
 ({
     name: "WiFi", // Category Name
+    description: "Connect to WiFi",
+    author: "microBlock",
+    category: "Communication",
+    version: "1.0.0",
     icon: "/static/icon.png", // Category icon
     color: "#3498DB", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
