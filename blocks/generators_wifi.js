@@ -17,3 +17,44 @@ Blockly.Python['wifi_wait_connected'] = function(block) {
   var code = 'while not wlan.isconnected(): pass\n';
   return code;
 };
+
+
+Blockly.JavaScript['wifi_connect'] = function(block) {
+  var value_ssid = Blockly.JavaScript.valueToCode(block, 'ssid', Blockly.Python.ORDER_ATOMIC);
+  var value_pass = Blockly.JavaScript.valueToCode(block, 'pass', Blockly.Python.ORDER_ATOMIC) || 'None';
+  
+  if (boardId === "arduino-uno-r4-wifi") {
+    Blockly.JavaScript.definitions_['include']['WiFiS3.h'] = '#include <WiFiS3.h>';
+  } else {
+    Blockly.JavaScript.definitions_['include']['WiFi.h'] = '#include <WiFi.h>';
+  }
+
+  var code = `WiFi.begin(${value_ssid}, ${value_pass});\n`;
+  return code;
+};
+
+Blockly.JavaScript['wifi_is_connected'] = function(block) {
+  if (boardId === "arduino-uno-r4-wifi") {
+    Blockly.JavaScript.definitions_['include']['WiFiS3.h'] = '#include <WiFiS3.h>';
+  } else {
+    Blockly.JavaScript.definitions_['include']['WiFi.h'] = '#include <WiFi.h>';
+  }
+
+  var code = 'WiFi.status() == WL_CONNECTED';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['wifi_wait_connected'] = function(block) {
+  if (boardId === "arduino-uno-r4-wifi") {
+    Blockly.JavaScript.definitions_['include']['WiFiS3.h'] = '#include <WiFiS3.h>';
+  } else {
+    Blockly.JavaScript.definitions_['include']['WiFi.h'] = '#include <WiFi.h>';
+  }
+  
+  var code = 
+`while(WiFi.status() != WL_CONNECTED) {
+  delay(10);
+}
+`;
+  return code;
+};

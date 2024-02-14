@@ -3,7 +3,7 @@
     description: "Connect to WiFi",
     author: "microBlock",
     category: "Communication",
-    version: "1.1.0",
+    version: "1.2.0",
     icon: "/static/icon.png", // Category icon
     color: "#3498DB", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
@@ -28,8 +28,11 @@
             `
         },
     ],
-    chip: [
-        "ESP32", // Chip support
-        "RP2-WiFi"
-    ]
+    chip: [ // Chip support
+        "ESP32", 
+        "RP2-WiFi",
+        "Uno-R4-WiFi"
+    ], 
+    supportArduinoPlatform: true,
+    depends: [ ] // Arduino library
 });
